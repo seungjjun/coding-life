@@ -4,6 +4,6 @@ const container = document.getElementById('app');
 const root = ReactDOM.createRoot(container);
 root.render((
   <p>
-    Hello, world!
+    서버 수정 되나
   </p>
 ));
