@@ -24,7 +24,7 @@ public class Company {
     @Field(type = FieldType.Text, name = "keyword")
     private String keyword;
 
-    @Field(type = FieldType.Auto, name = "eventTime")
+    @Field(type = FieldType.Date, name = "eventTime")
     private Instant eventTime;
 
     public Company() {
