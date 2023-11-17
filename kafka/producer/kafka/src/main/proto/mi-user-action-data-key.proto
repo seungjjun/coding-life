@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option java_package = "com.aiceltech.etl.protobuf.dto";
+option java_multiple_files = true;
+
+message MiUserActionKey {
+  optional int64 userAccountId = 1;
+}

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package = "com.aiceltech.etl.protobuf.dto";
+option java_multiple_files = true;
+
+message MiUserPropertyValue {
+  optional string email = 1;
+  optional string nickname = 2;
+  optional .MiUserPropertyValue.UserLicense userLicense = 3;
+  optional string companyName = 4;
+  optional int64 companyId = 5;
+  optional .MiUserPropertyValue.Date date = 6;
+  optional .MiUserPropertyValue.Time time = 7;
+
+  message Date {
+    int32 year = 1;
+    int32 month = 2;
+    int32 day = 3;
+  }
+  message Time {
+    int32 hour = 1;
+    int32 min = 2;
+    int32 sec = 3;
+  }
+  enum UserLicense {
+    ESSENTIAL = 0;
+    PRO = 1;
+    ENTERPRISE = 2;
+    BASIC = 3;
+  }
+}

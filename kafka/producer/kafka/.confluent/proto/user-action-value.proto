@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_package = "com.seungjjun.kafka.protobuf.dto";
+option java_multiple_files = true;
+
+message UserActionValue {
+  optional string url = 1;
+  optional .UserActionValue.Date date = 2;
+  optional .UserActionValue.Time time = 3;
+
+  message Date {
+    int32 year = 1;
+    int32 month = 2;
+    int32 day = 3;
+  }
+
+  message Time {
+    int32 hour = 1;
+    int32 min = 2;
+    int32 sec = 3;
+  }
+}
