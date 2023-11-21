@@ -39,3 +39,5 @@ build/
 .confluent/.terraform/*
 .confluent/.terraform.lock.hcl
 .confluent/terraform.tfstate
+
+*.proto
