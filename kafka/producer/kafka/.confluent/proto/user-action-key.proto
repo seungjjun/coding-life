@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-option java_package = "com.seungjjun.kafka.protobuf.dto";
-option java_multiple_files = true;
-
-message UserActionKey {
-  optional string userAccountId = 1;
-}
