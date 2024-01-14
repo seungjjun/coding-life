@@ -1,0 +1,11 @@
+package com.study.springadvanced.trace.logtrace;
+
+import com.study.springadvanced.trace.TraceStatus;
+
+public interface LogTrace {
+    TraceStatus begin(String message);
+
+    void end(TraceStatus status);
+
+    void exception(TraceStatus status, Exception e);
+}
