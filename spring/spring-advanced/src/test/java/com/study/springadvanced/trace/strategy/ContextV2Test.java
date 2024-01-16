@@ -1,4 +1,4 @@
-package com.study.springadvanced.trace.template;
+package com.study.springadvanced.trace.strategy;
 
 import com.study.springadvanced.trace.strategy.code.strategy.ContextV2;
 import com.study.springadvanced.trace.strategy.code.strategy.StrategyLogic1;
