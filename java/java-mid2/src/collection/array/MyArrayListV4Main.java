@@ -17,6 +17,5 @@ public class MyArrayListV4Main {
 		integerList.add(3);
 		Integer integer = integerList.get(0);
 		System.out.println("integer = " + integer);
-		ArrayList
 	}
 }
