@@ -32,12 +32,13 @@ public class LandMineCell implements Cell {
 
 	@Override
 	public void open() {
-		cellState.open();;
+		cellState.open();
+		;
 	}
 
 	@Override
 	public boolean isChecked() {
-		return cellState.isChecked();
+		return cellState.isFlagged();
 	}
 
 	@Override
