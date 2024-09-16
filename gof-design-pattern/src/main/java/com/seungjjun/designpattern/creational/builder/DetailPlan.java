@@ -1,4 +1,4 @@
-package com.seungjjun.designpattern.builder;
+package com.seungjjun.designpattern.creational.builder;
 
 public class DetailPlan {
 

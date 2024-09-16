@@ -1,4 +1,4 @@
-package com.seungjjun.designpattern.singleton;
+package com.seungjjun.designpattern.creational.singleton;
 
 public class Singleton {
 

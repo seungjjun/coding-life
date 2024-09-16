@@ -1,4 +1,4 @@
-package com.seungjjun.designpattern.factorymethod;
+package com.seungjjun.designpattern.creational.factorymethod;
 
 public class BlackshipFactory implements ShipFactory {
 	@Override

@@ -1,7 +1,6 @@
-package com.seungjjun.designpattern.singleton;
+package com.seungjjun.designpattern.creational.singleton;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInput;

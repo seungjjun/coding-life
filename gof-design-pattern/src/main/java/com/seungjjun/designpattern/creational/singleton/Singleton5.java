@@ -1,4 +1,4 @@
-package com.seungjjun.designpattern.singleton;
+package com.seungjjun.designpattern.creational.singleton;
 
 // 권장되는 방식 중 하나
 public class Singleton5 {

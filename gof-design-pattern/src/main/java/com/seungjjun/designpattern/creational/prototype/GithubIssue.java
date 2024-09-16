@@ -1,4 +1,4 @@
-package com.seungjjun.designpattern.prototype;
+package com.seungjjun.designpattern.creational.prototype;
 
 import java.util.Objects;
 
