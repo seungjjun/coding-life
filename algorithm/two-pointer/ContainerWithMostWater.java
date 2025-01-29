@@ -16,7 +16,7 @@ public class ContainerWithMostWater {
                 continue;
             }
             if (hig == height[right]) {
-                right++;
+                right--;
             }
         }
         return answer;
