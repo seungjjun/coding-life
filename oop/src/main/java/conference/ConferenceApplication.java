@@ -1,8 +1,10 @@
-import domain.Conference;
-import domain.Session;
+package conference;
+
+import conference.domain.Conference;
+import conference.domain.Session;
 import java.time.LocalDateTime;
-import policy.FreeCancellationPolicy;
-import policy.PaidSessionCancellationPolicy;
+import conference.policy.FreeCancellationPolicy;
+import conference.policy.PaidSessionCancellationPolicy;
 
 public class ConferenceApplication {
 

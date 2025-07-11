@@ -1,6 +1,6 @@
-package policy;
+package conference.policy;
 
-import domain.Session;
+import conference.domain.Session;
 import java.time.LocalDateTime;
 
 public class NonRefundablePolicy implements CancellationPolicy{

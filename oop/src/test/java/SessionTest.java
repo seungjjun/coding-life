@@ -1,7 +1,7 @@
-import domain.Session;
+import conference.domain.Session;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
-import policy.FreeCancellationPolicy;
+import conference.policy.FreeCancellationPolicy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SessionTest {

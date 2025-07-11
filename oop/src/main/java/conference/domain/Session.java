@@ -1,4 +1,4 @@
-package domain;
+package conference.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
-import policy.CancellationPolicy;
+import conference.policy.CancellationPolicy;
 
 public class Session {
 

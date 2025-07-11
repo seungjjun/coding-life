@@ -1,4 +1,4 @@
-package domain;
+package conference.domain;
 
 import java.util.Objects;
 
