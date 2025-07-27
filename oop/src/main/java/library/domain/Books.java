@@ -19,7 +19,7 @@ public class Books {
 
     public void addBook(Book book) {
         boolean isRegisteredBook = this.values.stream()
-            .anyMatch(registeredBook -> registeredBook.equalsBook(book));
+            .anyMatch(registeredBook -> registeredBook.matchBook(book));
 
         if (isRegisteredBook) {
             throw new IllegalArgumentException("Book already exists with ISBN: " + book.getIsbn());
@@ -33,11 +33,15 @@ public class Books {
             .findFirst();
     }
 
-    public void removeBook(Book book) {
+    public Books copy() {
+        return new Books(values);
+    }
+
+    public void remove(Book book) {
         this.values.remove(book);
     }
 
-    public Books copy() {
-        return new Books(values);
+    public int size() {
+        return this.values.size();
     }
 }

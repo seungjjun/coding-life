@@ -11,13 +11,13 @@ public class Members {
 
     public Optional<Member> findMemberById(MemberId memberId) {
         return this.members.stream()
-            .filter(member -> member.equalsMember(memberId))
+            .filter(member -> member.matchesId(memberId))
             .findFirst();
     }
 
     public void addMember(MemberId newMemberId) {
         members.stream()
-            .filter(member -> member.equalsMember(newMemberId))
+            .filter(member -> member.matchesId(newMemberId))
             .findFirst()
             .ifPresentOrElse(
                 existingMember -> {
@@ -25,11 +25,5 @@ public class Members {
                 },
                 () -> members.add(new Member(newMemberId))
             );
-    }
-
-    public void lendBookTo(String memberId, String isbn, Books libraryBooks) {
-        Member foundMember = findMemberById(new MemberId(memberId))
-            .orElseThrow(() -> new IllegalArgumentException("Member not found with ID: " + memberId));
-        foundMember.borrow(isbn, libraryBooks);
     }
 }

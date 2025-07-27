@@ -1,6 +1,5 @@
 package library.domain;
 
-import library.vo.Isbn;
 import library.vo.MemberId;
 
 public class Member {
@@ -12,24 +11,29 @@ public class Member {
         this.id = id;
     }
 
-    public void borrow(String isbn, Books libraryBooks) {
-        Book book = libraryBooks.findByIsbn(new Isbn(isbn))
-            .orElseThrow(() -> new IllegalArgumentException("Book not found in library: " + isbn));
-
-        this.borrowedBooks.findByIsbn(new Isbn(isbn))
-            .ifPresentOrElse(
-                existingBook -> {
-                    throw new IllegalArgumentException("Book already borrowed: " + existingBook.getIsbn());
-                },
-                book::lend
-            );
+    public void borrow(Book book) {
+        if (this.borrowedBooks.findByIsbn(book.getIsbn()).isPresent()) {
+            throw new IllegalArgumentException("Book already borrowed: " + book.getIsbn());
+        }
+        borrowedBooks.addBook(book);
     }
 
-    public boolean equalsMember(MemberId memberId) {
+    public void returnBook(Book book) {
+        if (this.borrowedBooks.findByIsbn(book.getIsbn()).isEmpty()) {
+            throw new IllegalArgumentException("Book not borrowed: " + book.getIsbn());
+        }
+        borrowedBooks.remove(book);
+    }
+
+    public boolean matchesId(MemberId memberId) {
         return this.id.equals(memberId);
     }
 
     public Books displayBorrowedBooks() {
         return borrowedBooks.copy();
+    }
+
+    public int checkBorrowedBookSize() {
+        return this.borrowedBooks.size();
     }
 }

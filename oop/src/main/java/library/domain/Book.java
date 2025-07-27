@@ -14,7 +14,7 @@ public class Book {
         this.borrowStatus = BorrowStatus.AVAILABLE;
     }
 
-    public boolean equalsBook(Book book) {
+    public boolean matchBook(Book book) {
         return matchIsbn(book.isbn);
     }
 
@@ -31,5 +31,9 @@ public class Book {
             throw new IllegalArgumentException("Book is not available for lending: " + isbn);
         }
         this.borrowStatus = BorrowStatus.CHECKED_OUT;
+    }
+
+    public void checkIn() {
+        this.borrowStatus = BorrowStatus.AVAILABLE;
     }
 }
