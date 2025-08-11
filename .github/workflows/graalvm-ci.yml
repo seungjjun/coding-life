@@ -21,13 +21,18 @@ jobs:
           java-version: '21' # GraalVM이 지원하는 JDK 버전
           distribution: 'graalvm' # 'graalvm'으로 지정
 
+      - name: Verify GraalVM installation
+        run: |
+          echo "--- Java Version ---"
+          java --version
+          echo "--- JAVA_HOME Path ---"
+          echo $JAVA_HOME
+          echo "--- Bin Directory Contents ---"
+          ls -l $JAVA_HOME/bin
+
       # 2. C 컴파일러 등 네이티브 빌드 도구 설치
       - name: Install native-image build tools
         run: sudo apt-get install -y build-essential libz-dev zlib1g-dev
-
-      # 3. native-image 컴포넌트 설치
-      - name: Install native-image component
-        run: gu install native-image
 
       # 4. Maven 캐시 설정
       - name: Cache Maven packages
