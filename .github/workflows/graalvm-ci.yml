@@ -1,0 +1,44 @@
+name: GraalVM Native CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-native:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. JDK를 GraalVM으로 설정
+      - name: Set up GraalVM
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21' # GraalVM이 지원하는 JDK 버전
+          distribution: 'graalvm' # 'graalvm'으로 지정
+
+      # 2. C 컴파일러 등 네이티브 빌드 도구 설치
+      - name: Install native-image build tools
+        run: sudo apt-get install -y build-essential libz-dev zlib1g-dev
+
+      # 3. native-image 컴포넌트 설치
+      - name: Install native-image component
+        run: gu install native-image
+
+      # 4. Maven 캐시 설정
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # 5. native 프로파일을 활성화하여 빌드
+      - name: Build with Maven
+        working-directory: graalvm
+        run: ./mvnw -B package -Pnative
